@@ -1,5 +1,7 @@
 # cgo101
 
+Android download https://play.google.com/store/apps/details?id=weilican.cgo101
+
 * 34 solitaire games
 * Win32 and android support
 
