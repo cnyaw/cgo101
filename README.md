@@ -3,7 +3,9 @@
 * 34 solitaire games
 * Win32 and android support
 
-# list
+![image](cgo101.png)
+
+# game list
 - 001_Accordion
 - 002_MonteCarlo
 - 003_BlockEleven
