@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Cards.h"
-
 class GdiCardGameRenderer : public cgo::CardGameRenderer
 {
 public:
@@ -9,12 +7,14 @@ public:
   CDCHandle dc;
 
   CBitmap mBkgnd;
+  CBitmap mCards;
   CBitmap mBmpDeck;
   CBitmap mBmpCover;
 
   GdiCardGameRenderer()
   {
     mBkgnd.LoadBitmap((LPCTSTR)IDB_BITMAP1);
+    mCards.LoadBitmap((LPCTSTR)IDB_BITMAP2);
     mBmpDeck.LoadBitmap((LPCTSTR)IDB_BITMAP3);
     mBmpCover.LoadBitmap((LPCTSTR)IDB_BITMAP4);
   }
@@ -23,7 +23,10 @@ public:
   {
     int color = GetColor(card);
     int number = GetNumber(card);
-    cdtDraw(dc, x, y, color + 4 * (number - 1), 0, 0);
+    CDC memdc;
+    memdc.CreateCompatibleDC(dc);
+    memdc.SelectBitmap(mCards);
+    dc.BitBlt(x, y, CARD_WIDTH, CARD_HEIGHT, memdc, (number - 1) * CARD_WIDTH, color * CARD_HEIGHT, SRCCOPY);
   }
 
   void DrawCover(int x, int y)
@@ -58,17 +61,6 @@ public:
 
   int mSel;
   cgo::CardGame* mGame;
-
-  CCgoView()
-  {
-    int w = CARD_WIDTH, h = CARD_HEIGHT;
-    cdtInit(&w, &h);
-  } // CCgoView
-
-  ~CCgoView()
-  {
-    cdtTerm();
-  } // ~CCgoView
 
   void NewGame()
   {

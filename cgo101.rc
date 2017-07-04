@@ -184,6 +184,7 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 IDB_BITMAP1             BITMAP                  "img\\bkgnd.bmp"
+IDB_BITMAP2             BITMAP                  "img\\card1.bmp"
 IDB_BITMAP3             BITMAP                  "img\\deck.bmp"
 IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
 IDB_BITMAP4             BITMAP                  "img\\cover.bmp"

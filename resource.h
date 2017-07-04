@@ -34,6 +34,7 @@
 #define IDS_014_DESC                    156
 #define IDS_015_NAME                    157
 #define IDB_BITMAP1                     231
+#define IDB_BITMAP2                     232
 #define IDB_BITMAP3                     233
 #define IDB_BITMAP4                     234
 #define IDD_DIALOG2                     236

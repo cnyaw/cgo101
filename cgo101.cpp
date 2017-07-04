@@ -15,8 +15,6 @@
 
 #include "resource.h"
 
-#include "Cards.h"
-
 #define CARD_WIDTH 71
 #define CARD_HEIGHT 96
 
