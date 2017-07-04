@@ -2,7 +2,7 @@
 
 #include "Cards.h"
 
-class CardGameDCRenderer : public cgo::CardGameRenderer
+class GdiCardGameRenderer : public cgo::CardGameRenderer
 {
 public:
 
@@ -12,7 +12,7 @@ public:
   CBitmap mBmpDeck;
   CBitmap mBmpCover;
 
-  CardGameDCRenderer()
+  GdiCardGameRenderer()
   {
     mBkgnd.LoadBitmap((LPCTSTR)IDB_BITMAP1);
     mBmpDeck.LoadBitmap((LPCTSTR)IDB_BITMAP3);
@@ -175,7 +175,7 @@ public:
   void OnPaint(CDCHandle hdc)
   {
     CPaintDC dc(m_hWnd);
-    CardGameDCRenderer g;
+    GdiCardGameRenderer g;
     RECT rcClient;
     GetClientRect(&rcClient);
     g.rcClient = cgo::RECT_t(rcClient.left, rcClient.top, rcClient.right, rcClient.bottom);
