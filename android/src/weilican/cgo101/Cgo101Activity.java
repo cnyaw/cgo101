@@ -278,7 +278,6 @@ public class Cgo101Activity extends Activity
       @Override
       public boolean onScale(ScaleGestureDetector detector) {
         mScaleFactor *= detector.getScaleFactor();
-        mScaleFactor = Math.max(0.5f, Math.min(mScaleFactor, 2.0f));
         JniLib.setClientRect((int)(mViewW / mScaleFactor), (int)(mViewH / mScaleFactor));
         invalidate();
         return true;
