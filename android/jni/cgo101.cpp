@@ -21,40 +21,6 @@
 #include "../../resource.h"
 #include "../../cgo101/cgo101.h"
 
-class AndroidCardGameRenderer : public cgo::CardGameRenderer
-{
-public:
-
-  std::vector<int> mDrawList;
-
-  void DrawCard(int x, int y, int card)
-  {
-    mDrawList.push_back(3);
-    mDrawList.push_back(x);
-    mDrawList.push_back(y);
-    mDrawList.push_back(card);
-  }
-
-  void DrawCover(int x, int y)
-  {
-    mDrawList.push_back(2);
-    mDrawList.push_back(x);
-    mDrawList.push_back(y);
-  }
-
-  void DrawEmptyCard(int x, int y)
-  {
-    mDrawList.push_back(1);
-    mDrawList.push_back(x);
-    mDrawList.push_back(y);
-  }
-
-  void EraseBkgnd()
-  {
-    mDrawList.push_back(0);
-  }
-};
-
 int mSel = 0;
 cgo::CardGame* mGame = 0;
 cgo::RECT_t mClientRect;
@@ -98,7 +64,7 @@ JNIEXPORT void JNICALL Java_weilican_cgo101_JniLib_mouseMove(JNIEnv * env, jobje
 JNIEXPORT jintArray JNICALL Java_weilican_cgo101_JniLib_drawGame(JNIEnv * env, jobject obj)
 {
   if (mGame) {
-    AndroidCardGameRenderer g;
+    cgo::DrawListCardGameRenderer g;
     g.rcClient = mClientRect;
     g.EraseBkgnd();
     mGame->DrawGame(g);

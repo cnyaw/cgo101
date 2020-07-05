@@ -72,6 +72,46 @@ public:
   virtual void EraseBkgnd() {}
 };
 
+class DrawListCardGameRenderer : public CardGameRenderer
+{
+public:
+  enum DRAW_TYPE {
+    DT_ERASE_BKGND = 0,
+    DT_DRAW_EMPTY_CARD,
+    DT_DRAW_COVER,
+    DT_DRAW_CARD,
+  };
+
+  std::vector<int> mDrawList;
+
+  void DrawCard(int x, int y, int card)
+  {
+    mDrawList.push_back(DT_DRAW_CARD);
+    mDrawList.push_back(x);
+    mDrawList.push_back(y);
+    mDrawList.push_back(card);
+  }
+
+  void DrawCover(int x, int y)
+  {
+    mDrawList.push_back(DT_DRAW_COVER);
+    mDrawList.push_back(x);
+    mDrawList.push_back(y);
+  }
+
+  void DrawEmptyCard(int x, int y)
+  {
+    mDrawList.push_back(DT_DRAW_EMPTY_CARD);
+    mDrawList.push_back(x);
+    mDrawList.push_back(y);
+  }
+
+  void EraseBkgnd()
+  {
+    mDrawList.push_back(DT_ERASE_BKGND);
+  }
+};
+
 class CardGame
 {
 public:
