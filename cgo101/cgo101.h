@@ -21,6 +21,8 @@ namespace cgo {
 #define GetColor(card) ((card) / 13)
 #define GetNumber(card) (((card) % 13) + 1)
 
+int myrand(int i) { return rand()%i; }
+
 struct POINT_t
 {
   POINT_t(int x_ = 0, int y_ = 0) : x(x_), y(y_)
@@ -180,7 +182,7 @@ public:
       mCards.push_back(i);
     }
 
-    std::random_shuffle(mCards.begin(), mCards.end());
+    std::random_shuffle(mCards.begin(), mCards.end(), myrand);
   }
 
   void PrepareCards2()
@@ -195,7 +197,7 @@ public:
       mCards.push_back(i);
     }
 
-    std::random_shuffle(mCards.begin(), mCards.end());
+    std::random_shuffle(mCards.begin(), mCards.end(), myrand);
   }
 
   //

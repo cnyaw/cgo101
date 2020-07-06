@@ -43,7 +43,7 @@ public:
     int c[] = {0, 1, 2, 3};
     const int n[] = {13, 13, 1, 1};
 
-    std::random_shuffle(c, c + 4);
+    std::random_shuffle(c, c + 4, myrand);
 
     for (int i = 0; i < 4; ++i) {
       for (int j = 0; j < (int)mCards.size(); ++j) {
