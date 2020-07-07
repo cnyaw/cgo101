@@ -101,6 +101,7 @@ function getEventOffset(e) {
 
 function newGame(sel) {
   Module.ccall('cNewGame', 'number', ['number'], [sel]);
+  drawGame();
 }
 
 function setClientRect(w, h) {
