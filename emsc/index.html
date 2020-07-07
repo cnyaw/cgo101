@@ -31,7 +31,43 @@ html, body {
 </head>
 <body>
 <div id="menu">
-  <button class="button" onclick="newGame(0)">New Game</button>
+  <select id="GameMenu" onchange="selGame()">
+    <option value="1">001_Accordion</option>
+    <option value="2">002_MonteCarlo</option>
+    <option value="3">003_BlockEleven</option>
+    <option value="4">004_Calculation</option>
+    <option value="5">005_LittleSpider</option>
+    <option value="6">006_PussInTheConer</option>
+    <option value="7">007_Pyramid</option>
+    <option value="8">008_EasyGo</option>
+    <option value="9">009_Scorpion</option>
+    <option value="10">010_SirTommy</option>
+    <option value="11">011_SixBySix</option>
+    <option value="12">012_LeCadran</option>
+    <option value="13">013_SimpleSimon</option>
+    <option value="14">014_Klondike</option>
+    <option value="15">015_MrsMop</option>
+    <option value="16">016_RoyalParade</option>
+    <option value="17">017_Martha</option>
+    <option value="18">018_BakersDozen</option>
+    <option value="19">019_Golf</option>
+    <option value="20">020_KingAlbert</option>
+    <option value="21">021_Diavolo</option>
+    <option value="22">022_EightByEight</option>
+    <option value="23">023_Labyrinth</option>
+    <option value="24">024_Dieppe</option>
+    <option value="25">025_Bisley</option>
+    <option value="26">026_AboveAndBelow</option>
+    <option value="27">027_EightOff</option>
+    <option value="28">028_TheCarpet</option>
+    <option value="29">029_StoneWall</option>
+    <option value="30">030_ThreeBlindMice</option>
+    <option value="31">031_Vacancies</option>
+    <option value="32">032_Raglan</option>
+    <option value="33">033_KingsWay</option>
+    <option value="34">034_Capricious</option>
+  </select>
+  <button class="button" onclick="newGame(sel)">New Game</button>
 </div>
 <img id="imgBkgnd" src="../img/bkgnd.bmp" alt="" style="display:none;"/>
 <img id="imgCard" src="../img/card1.bmp" alt="" style="display:none;"/>
@@ -42,7 +78,7 @@ html, body {
 <script src="a.out.js"></script>
 <script src="cgo101.js"></script>
 <script>
-  sel = Math.floor(Math.random() * 34);
+  sel = 0;
   newGame(0);
   drawGame();
 </script>

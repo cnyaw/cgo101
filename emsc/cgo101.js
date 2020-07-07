@@ -104,6 +104,14 @@ function newGame(sel) {
   drawGame();
 }
 
+function selGame() {
+  var x = document.getElementById("GameMenu").value - 1;
+  if (sel != x) {
+    sel = x;
+    newGame(x);
+  }
+}
+
 function setClientRect(w, h) {
   Module.ccall('cSetClientRect', 'number', ['number', 'number'], [w, h]);
 }
