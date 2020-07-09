@@ -10,27 +10,17 @@ html, body {
   height:100%;
   margin:0px;
 }
-.button {
-  background-color: #f44336;
-  border:none;
-  color:white;
-  padding:5px 5px;
-  text-align:center;
-  text-decoration:none;
-  font-size:16px;
-  cursor:pointer;
-}
 #menu {
   padding:2px;
   position:fixed;
   top:0;
   right:0;
-  border:1px solid white;
 }
 </style>
 </head>
 <body>
 <div id="menu">
+  <button onclick="window.location.href='../../'">&laquo;Home</button>
   <select id="GameMenu" onchange="selGame()">
     <option value="1">001_Accordion</option>
     <option value="2">002_MonteCarlo</option>
@@ -67,8 +57,7 @@ html, body {
     <option value="33">033_KingsWay</option>
     <option value="34">034_Capricious</option>
   </select>
-  <button class="button" onclick="newGame(sel)">New Game</button>
-  <button class="button" onclick="window.location.href='../../'">&laquo;Home</button>
+  <button onclick="newGame(sel)">New Game</button>
 </div>
 <img id="imgBkgnd" src="../img/bkgnd.bmp" alt="" style="display:none;"/>
 <img id="imgCard" src="../img/card1.bmp" alt="" style="display:none;"/>
