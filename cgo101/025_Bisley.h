@@ -110,11 +110,7 @@ public:
       if (1 == mList[i].size() && 4 > i) {
         continue;
       }
-#ifdef min
-      GetRect(i, min(3, mList[i].size() - 1), rc);
-#else
-      GetRect(i, std::min(3, (int)mList[i].size() - 1), rc);
-#endif
+      GetRect(i, (std::min)(3, (int)mList[i].size() - 1), rc);
       if (!rc.ptInRect(point)) {
         continue;
       }
@@ -183,11 +179,7 @@ public:
       if (mList[i].empty()) {
         continue;
       }
-#ifdef min
-      GetRect(i, min(3, mList[i].size() - 1), rc);
-#else
-      GetRect(i, std::min(3, (int)mList[i].size() - 1), rc);
-#endif
+      GetRect(i, (std::min)(3, (int)mList[i].size() - 1), rc);
       if (!rc.ptInRect(point)) {
         continue;
       }
