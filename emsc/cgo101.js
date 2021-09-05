@@ -16,6 +16,43 @@ var imgCard = document.getElementById("imgCard");
 var imgCover = document.getElementById("imgCover");
 var imgDeck = document.getElementById("imgDeck");
 
+var wiki_values = [
+  "Accordion_(solitaire)",
+  "Monte_Carlo_(solitaire)",
+  "", // 003_BlockEleven
+  "Calculation_(card_game)",
+  "Little_Spider",
+  "Puss_in_the_Corner",
+  "Pyramid_(solitaire)",
+  "", // 008_EasyGo
+  "Scorpion_(solitaire)",
+  "Sir_Tommy",
+  "Six_By_Six",
+  "Forty_Thieves_(card_game)",
+  "Simple_Simon_(solitaire)",
+  "Klondike_(solitaire)",
+  "Mrs._Mop",
+  "Virginia_Reel_(solitaire)",
+  "Martha_(solitaire)",
+  "Baker%27s_Dozen_(solitaire)",
+  "Golf_(patience)",
+  "King_Albert_(solitaire)",
+  "", // 021_Diavolo
+  "", // 022_EightByEight
+  "Labyrinth_(solitaire)",
+  "", // 024_Dieppe
+  "Bisley_(solitaire)",
+  "", // 026_AboveAndBelow
+  "Eight_Off",
+  "Carpet_(solitaire)",
+  "Stonewall_(solitaire)",
+  "Scorpion_(solitaire)",
+  "Gaps",
+  "", // 032_Raglan
+  "", // 033_KingsWay
+  "Capricieuse",
+];
+
 c0.onmousedown = function(e) {
   var off = getEventOffset(e);
   var x = off.x, y = off.y;
@@ -141,9 +178,22 @@ function selGame() {
   if (sel != x) {
     sel = x;
     newGame(x);
+    var btnHelp = document.getElementById('btnHelp');
+    var page = wiki_values[sel];
+    if (!page || 0 === page.length) {
+      btnHelp.style.display = 'none';
+    } else {
+      btnHelp.style.display = '';
+    }
   }
 }
 
 function setClientRect(w, h) {
   Module.ccall('cSetClientRect', 'number', ['number', 'number'], [w, h]);
+}
+
+function showHelp(sel) {
+  var page = wiki_values[sel];
+  var url = 'https://en.wikipedia.org/wiki/' + page;
+  window.open(url, '_blank').focus();
 }
