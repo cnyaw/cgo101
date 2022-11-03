@@ -1,7 +1,7 @@
 # cgo101
 
 Android download https://play.google.com/store/apps/details?id=weilican.cgo101 <br/>
-Play on browser https://agile-hollows-18660.herokuapp.com/game/cgo101/
+Play on browser https://smallworld.idv.tw/game/cgo101/
 
 * 34 solitaire games
 * Win32 and android support
