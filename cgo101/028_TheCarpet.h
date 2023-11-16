@@ -204,7 +204,7 @@ public:
       return false;
     }
 
-    int card1;
+    int card1 = 0;
     if (1 == mSel) {
       card1 = mCards.front();
     } else if (2 == mSel) {

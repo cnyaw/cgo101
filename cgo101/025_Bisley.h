@@ -107,7 +107,7 @@ public:
     RECT_t rc;
     for (int i = 0; i < 13; ++i) {
 
-      if (1 == mList[i].size() && 4 > i) {
+      if (4 > i && 1 == mList[i].size()) {
         continue;
       }
       GetRect(i, (std::min)(3, (int)mList[i].size() - 1), rc);
