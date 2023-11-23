@@ -244,18 +244,12 @@ end:
 
   void GetDeckRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (iDeck - 1);
-    rcDeck.top = 4;
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (iDeck - 1), 4);
   } // GetDeckRect
 
   void GetReserveRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 12 + OFFSETW * 10;
-    rcDeck.top = 12 + OFFSETH * iDeck;
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 12 + OFFSETW * 10, 12 + OFFSETH * iDeck);
   } // GetReserveRect
 };
 

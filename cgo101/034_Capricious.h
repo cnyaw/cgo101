@@ -312,19 +312,12 @@ end:
   {
     int r = iDeck / 4;
     int c = iDeck % 4;
-
-    rcDeck.left = 4 + OFFSETW * (3 + c);
-    rcDeck.top = 4 + OFFSETH * (1 + r);
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (3 + c), 4 + OFFSETH * (1 + r));
   } // GetDeckRect
 
   void GetSolitaireRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (1 + iDeck);
-    rcDeck.top = 4;
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (1 + iDeck), 4);
   } // GetSolitaireRect
 };
 

@@ -222,10 +222,7 @@ public:
     for (int j = 0; j < cyDeck; ++j) {
       for (int i = 0; i < cxDeck; ++i, ++c) {
         if (c == iDeck) {
-          rcDeck.left = 4 + i * OFFSETW;
-          rcDeck.top = 4 + j * OFFSETH;
-          rcDeck.right = rcDeck.left + CARD_WIDTH;
-          rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+          InitCardRect(rcDeck, 4 + i * OFFSETW, 4 + j * OFFSETH);
           return true;
         }
       }

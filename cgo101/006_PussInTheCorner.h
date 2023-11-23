@@ -300,26 +300,17 @@ public:
 
   void GetAwaitRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (0 == (iDeck % 2) ? 2 : 5);
-    rcDeck.top = 4 + (0 == (iDeck / 2) ? 0 : OFFSETH * 3);
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (0 == (iDeck % 2) ? 2 : 5), 4 + (0 == (iDeck / 2) ? 0 : OFFSETH * 3));
   } // GetAwaitRect
 
   void GetDeckRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (3 + (iDeck % 2));
-    rcDeck.top = 4 + OFFSETH * (1 + (iDeck / 2));
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (3 + (iDeck % 2)), 4 + OFFSETH * (1 + (iDeck / 2)));
   } // GetDeckRect
 
   void GetNewRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (iDeck % 2);
-    rcDeck.top = 4 + OFFSETH * (1 + (iDeck / 2));
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (iDeck % 2), 4 + OFFSETH * (1 + (iDeck / 2)));
   } // GetNewRect
 };
 

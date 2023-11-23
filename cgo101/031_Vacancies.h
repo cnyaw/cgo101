@@ -205,10 +205,7 @@ end:
 
   void GetDeckRect(int i, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (i % 13);
-    rcDeck.top = 4 + OFFSETH * (i / 13);
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (i % 13), 4 + OFFSETH * (i / 13));
   } // GetDeckRect
 };
 

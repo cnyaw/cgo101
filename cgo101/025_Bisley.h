@@ -221,10 +221,7 @@ end:
 
   void GetRect(int i, int j, RECT_t& rc) const
   {
-    rc.left = 4 + OFFSETW * i;
-    rc.top = 4 + OFFSETH * j;
-    rc.right = rc.left + CARD_WIDTH;
-    rc.bottom = rc.top + CARD_HEIGHT;
+    InitCardRect(rc, 4 + OFFSETW * i, 4 + OFFSETH * j);
   } // GetRect
 };
 

@@ -301,26 +301,17 @@ end:
 
   void GetSolitaireRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (1 + iDeck);
-    rcDeck.top = 4;
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (1 + iDeck), 4);
   } // GetSolitaireRect
 
   void GetDeckRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * iDeck;
-    rcDeck.top = 4 + OFFSETH;
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * iDeck, 4 + OFFSETH);
   } // GetDeckRect
 
   void GetReserveRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 16 + OFFSETW * (9 + (iDeck % 2));
-    rcDeck.top = 4 + OFFSETH * (iDeck / 2);
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 16 + OFFSETW * (9 + (iDeck % 2)), 4 + OFFSETH * (iDeck / 2));
   } // GetReserveRect
 };
 

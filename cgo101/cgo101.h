@@ -135,6 +135,18 @@ public:
   }
 
   //
+  // Helper.
+  //
+
+  void InitCardRect(RECT_t &rc, int left, int top) const
+  {
+    rc.left = left;
+    rc.top = top;
+    rc.right = rc.left + CARD_WIDTH;
+    rc.bottom = rc.top + CARD_HEIGHT;
+  }
+
+  //
   // Property.
   //
 

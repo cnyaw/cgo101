@@ -227,19 +227,12 @@ end:
   {
     int r = iDeck / 8;
     int c = iDeck % 8;
-
-    rcDeck.left = 4 + OFFSETW * (2 + c);
-    rcDeck.top = 4 + OFFSETH * (1 + r);
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (2 + c), 4 + OFFSETH * (1 + r));
   } // GetAwaitRect
 
   void GetDeckRect(int iDeck, RECT_t& rcDeck) const
   {
-    rcDeck.left = 4 + OFFSETW * (2 + iDeck);
-    rcDeck.top = 4;
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (2 + iDeck), 4);
   } // GetDeckRect
 };
 

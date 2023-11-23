@@ -293,11 +293,7 @@ public:
   {
     int x = iDeck % 5;
     int y = iDeck / 5;
-
-    rcDeck.left = 4 + OFFSETW * (1 + x);
-    rcDeck.top = 4 + OFFSETH * y;
-    rcDeck.right = rcDeck.left + CARD_WIDTH;
-    rcDeck.bottom = rcDeck.top + CARD_HEIGHT;
+    InitCardRect(rcDeck, 4 + OFFSETW * (1 + x), 4 + OFFSETH * y);
   } // GetDeckRect
 
   int GetHitDeck(POINT_t point, RECT_t& rcDeck) const
