@@ -174,7 +174,7 @@ public:
       int color2 = GetColor(card2);
       int number2 = GetNumber(card2);
 
-      if (color1 == color2) {
+      if (color1 == color2 || 3 == color1 + color2) {
         goto end;
       }
 
