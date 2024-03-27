@@ -54,7 +54,7 @@ public:
   }
 };
 
-class CCgoView : public CWindowImpl<CCgoView>
+class CCgoView : public CWindowImpl<CCgoView>, public CDoubleBufferImpl<CCgoView>
 {
 public:
   DECLARE_WND_CLASS(NULL)
@@ -76,12 +76,11 @@ public:
 
   BEGIN_MSG_MAP_EX(CCgoView)
     MSG_WM_CREATE(OnCreate)
-    MSG_WM_ERASEBKGND(OnEraseBkgnd)
     MSG_WM_LBUTTONDBLCLK(OnLButtonDblClk)
     MSG_WM_LBUTTONDOWN(OnLButtonDown)
     MSG_WM_MOUSEMOVE(OnMouseMove)
     MSG_WM_LBUTTONUP(OnLButtonUp)
-    MSG_WM_PAINT(OnPaint)
+    CHAIN_MSG_MAP(CDoubleBufferImpl<CCgoView>)
   END_MSG_MAP()
 
   //
@@ -98,11 +97,6 @@ public:
     SetMsgHandled(FALSE);
     return 0;
   } // OnCreate
-
-  BOOL OnEraseBkgnd(CDCHandle dc)
-  {
-    return TRUE;
-  } // OnEraseBkgnd
 
   void OnLButtonDblClk(UINT nFlags, CPoint point)
   {
@@ -164,16 +158,14 @@ public:
     }
   } // OnMouseMove
 
-  void OnPaint(CDCHandle hdc)
+  void DoPaint(CDCHandle memdc)
   {
-    CPaintDC dc(m_hWnd);
     GdiCardGameRenderer g;
     RECT rcClient;
     GetClientRect(&rcClient);
     g.rcClient = cgo::RECT_t(rcClient.left, rcClient.top, rcClient.right, rcClient.bottom);
-    CMemoryDC memdc(dc, rcClient);
     g.dc = memdc;
     g.EraseBkgnd();
     mGame->DrawGame(g);
-  } // OnPaint
+  } // DoPaint
 };
