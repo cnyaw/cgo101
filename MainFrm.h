@@ -1,10 +1,7 @@
 #pragma once
 
 class CMainFrame :
-  public CFrameWindowImpl<CMainFrame>,
-  public CUpdateUI<CMainFrame>,
-  public CMessageFilter,
-  public CIdleHandler
+  public CFrameWindowImpl<CMainFrame>, public CMessageFilter
 {
 public:
   DECLARE_FRAME_WND_CLASS(NULL, IDR_MAINFRAME)
@@ -20,17 +17,6 @@ public:
     return m_view.PreTranslateMessage(pMsg);
   } // PreTranslateMessage
 
-  virtual BOOL OnIdle()
-  {
-    UIUpdateToolBar();
-    return FALSE;
-  } // OnIdle
-
-  BEGIN_UPDATE_UI_MAP(CMainFrame)
-    UPDATE_ELEMENT(ID_VIEW_TOOLBAR, UPDUI_MENUPOPUP)
-    UPDATE_ELEMENT(ID_VIEW_STATUS_BAR, UPDUI_MENUPOPUP)
-  END_UPDATE_UI_MAP()
-
   BEGIN_MSG_MAP_EX(CMainFrame)
     MSG_WM_CREATE(OnCreate)
     MSG_WM_DESTROY(OnDestroy)
@@ -40,7 +26,6 @@ public:
     COMMAND_ID_HANDLER_EX(ID_FILE_NEWCARD, OnNewCard)
     COMMAND_ID_HANDLER_EX(ID_FILE_SELECTGAME, OnSelectGame)
     COMMAND_ID_HANDLER_EX(ID_FILE_SELECTGAMERANDOM, OnRandomSelectGame)
-    CHAIN_MSG_MAP(CUpdateUI<CMainFrame>)
     CHAIN_MSG_MAP(CFrameWindowImpl<CMainFrame>)
   END_MSG_MAP()
 
@@ -99,10 +84,6 @@ public:
                             WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN,
                             WS_EX_CLIENTEDGE);
 
-    UIAddToolBar(hWndToolBar);
-    UISetCheck(ID_VIEW_TOOLBAR, 1);
-    UISetCheck(ID_VIEW_STATUS_BAR, 1);
-
     //
     // Register object for message filtering and idle updates.
     //
@@ -110,7 +91,6 @@ public:
     CMessageLoop* pLoop = _Module.GetMessageLoop();
     ATLASSERT(pLoop != NULL);
     pLoop->AddMessageFilter(this);
-    pLoop->AddIdleHandler(this);
 
     m_view.mGame->NewGame();
 
@@ -131,7 +111,6 @@ public:
     CMessageLoop* pLoop = _Module.GetMessageLoop();
     ATLASSERT(pLoop != NULL);
     pLoop->RemoveMessageFilter(this);
-    pLoop->RemoveIdleHandler(this);
 
     SetMsgHandled(FALSE);
   } // OnDestroy
