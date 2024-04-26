@@ -19,7 +19,7 @@ public:
     m_homepage.SetHyperLinkExtendedStyle(
                  HLINK_NOTOOLTIP | HLINK_UNDERLINEHOVER,
                  HLINK_NOTOOLTIP | HLINK_UNDERLINEHOVER);
-    m_homepage.SetHyperLink(_T("http://www.smallworld.idv.tw/"));
+    m_homepage.SetHyperLink(_T("https://smallworld.idv.tw/"));
 
     CenterWindow(GetParent());
     return TRUE;

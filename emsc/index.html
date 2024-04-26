@@ -17,6 +17,7 @@ html, body {
   right:0;
 }
 </style>
+<title>CGO101</title>
 </head>
 <body>
 <div id="menu">
@@ -60,19 +61,21 @@ html, body {
   <button onclick="newGame(sel)">New Game</button>
   <button id="btnHelp" onclick="showHelp(sel)">&#x2753;</button>
 </div>
-<img id="imgBkgnd" src="../img/bkgnd.bmp" alt="" style="display:none;"/>
-<img id="imgCard" src="../img/card1.bmp" alt="" style="display:none;"/>
-<img id="imgCover" src="../img/cover.bmp" alt="" style="display:none;"/>
-<img id="imgDeck" src="../img/deck.bmp" alt="" style="display:none;"/>
+<img id="imgBkgnd" src="../res/bkgnd.bmp" alt="" style="display:none;"/>
+<img id="imgCard" src="../res/card1.bmp" alt="" style="display:none;"/>
+<img id="imgCover" src="../res/cover.bmp" alt="" style="display:none;"/>
+<img id="imgDeck" src="../res/deck.bmp" alt="" style="display:none;"/>
 <canvas id = 'c0'>Your browser does not support the HTML5 canvas tag.</canvas>
 <div class="footer">
-  <span>Copyright &copy; 2020, Waync Cheng</span>
+  <p>Copyright &copy; 2020, Waync Cheng</p>
 </div>
 <script src="a.out.js"></script>
 <script src="cgo101.js"></script>
 <script>
+function ongameload() {
   sel = 0;
   newGame(0);
+}
 </script>
 </body>
 </html>

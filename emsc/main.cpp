@@ -86,5 +86,6 @@ int EMSCRIPTEN_KEEPALIVE cGetDrawGameData(int index)
 int main(int argc, char* argv[])
 {
   srand(time(0));
+  emscripten_run_script("ongameload()");
   emscripten_exit_with_live_runtime();
 }

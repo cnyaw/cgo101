@@ -63,7 +63,7 @@ public:
     // Shuffle again.
     //
 
-    std::random_shuffle(mCards.begin(), mCards.end(), myrand);
+    random_shuffle(mCards.begin(), mCards.end());
 
     //
     // Find a card that number > 10 and put to the end of mCards.

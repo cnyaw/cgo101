@@ -70,7 +70,7 @@ public:
       }
     }
 
-    std::random_shuffle(mCards.begin(), mCards.end(), myrand);
+    random_shuffle(mCards.begin(), mCards.end());
 
     for (int i = 0; i < 52; ++i) {
 

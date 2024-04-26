@@ -21,8 +21,6 @@ namespace cgo {
 #define GetColor(card) ((card) / 13)
 #define GetNumber(card) (((card) % 13) + 1)
 
-int myrand(int i) { return rand()%i; }
-
 struct POINT_t
 {
   POINT_t(int x_ = 0, int y_ = 0) : x(x_), y(y_)
@@ -146,6 +144,17 @@ public:
     rc.bottom = rc.top + CARD_HEIGHT;
   }
 
+  int myrand(int i) { return rand()%i; }
+
+  template<class RandomIt>
+  void random_shuffle(RandomIt first, RandomIt last)
+  {
+    typedef typename std::iterator_traits<RandomIt>::difference_type diff_t; 
+    for (diff_t i = last - first - 1; i > 0; --i) {
+      std::swap(first[i], first[myrand(i + 1)]);
+    }
+  }
+
   //
   // Property.
   //
@@ -194,7 +203,7 @@ public:
       mCards.push_back(i);
     }
 
-    std::random_shuffle(mCards.begin(), mCards.end(), myrand);
+    random_shuffle(mCards.begin(), mCards.end());
   }
 
   void PrepareCards2()
@@ -209,7 +218,7 @@ public:
       mCards.push_back(i);
     }
 
-    std::random_shuffle(mCards.begin(), mCards.end(), myrand);
+    random_shuffle(mCards.begin(), mCards.end());
   }
 
   //
