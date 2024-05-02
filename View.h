@@ -68,12 +68,6 @@ public:
     Invalidate(FALSE);
   } // NewGame
 
-  BOOL PreTranslateMessage(MSG* pMsg)
-  {
-    pMsg;
-    return FALSE;
-  } // PreTranslateMessage
-
   BEGIN_MSG_MAP_EX(CCgoView)
     MSG_WM_CREATE(OnCreate)
     MSG_WM_LBUTTONDBLCLK(OnLButtonDblClk)

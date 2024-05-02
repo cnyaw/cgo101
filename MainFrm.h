@@ -11,10 +11,7 @@ public:
 
   virtual BOOL PreTranslateMessage(MSG* pMsg)
   {
-    if (CFrameWindowImpl<CMainFrame>::PreTranslateMessage(pMsg)) {
-      return TRUE;
-    }
-    return m_view.PreTranslateMessage(pMsg);
+    return CFrameWindowImpl<CMainFrame>::PreTranslateMessage(pMsg);
   } // PreTranslateMessage
 
   BEGIN_MSG_MAP_EX(CMainFrame)
