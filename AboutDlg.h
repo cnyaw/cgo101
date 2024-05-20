@@ -1,16 +1,13 @@
 #pragma once
 
-class CAboutDlg : public CDialogImpl<CAboutDlg>
+class CAboutDlg : public CSimpleDialog<IDD_ABOUTBOX>
 {
 public:
-  enum { IDD = IDD_ABOUTBOX };
-
   CHyperLink m_homepage;
 
   BEGIN_MSG_MAP(CAboutDlg)
     MESSAGE_HANDLER(WM_INITDIALOG, OnInitDialog)
-    COMMAND_ID_HANDLER(IDOK, OnCloseCmd)
-    COMMAND_ID_HANDLER(IDCANCEL, OnCloseCmd)
+    CHAIN_MSG_MAP(CSimpleDialog)
   END_MSG_MAP()
 
   LRESULT OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam*/, BOOL& /*bHandled*/)
@@ -24,10 +21,4 @@ public:
     CenterWindow(GetParent());
     return TRUE;
   } // OnInitDialog
-
-  LRESULT OnCloseCmd(WORD /*wNotifyCode*/, WORD wID, HWND /*hWndCtl*/, BOOL& /*bHandled*/)
-  {
-    EndDialog(wID);
-    return 0;
-  }
 };

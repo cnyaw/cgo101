@@ -8,12 +8,9 @@
 
 #pragma once
 
-class CHelpDlg : public CDialogImpl<CHelpDlg>
+class CHelpDlg : public CSimpleDialog<IDD_DIALOG2>
 {
 public:
-
-  enum { IDD = IDD_DIALOG2 };
-
   int mSel;
   CListBox mList;
   CEdit mDesc;
@@ -24,9 +21,8 @@ public:
 
   BEGIN_MSG_MAP_EX(CHelpDlg)
     MSG_WM_INITDIALOG(OnInitDialog)
-    COMMAND_ID_HANDLER_EX(IDOK, OnCloseCmd)
-    COMMAND_ID_HANDLER_EX(IDCANCEL, OnCloseCmd)
     COMMAND_CODE_HANDLER_EX(LBN_SELCHANGE, OnSelChange)
+    CHAIN_MSG_MAP(CSimpleDialog)
   END_MSG_MAP()
 
   BOOL OnInitDialog(CWindow wndFocus, LPARAM lInitParam)
@@ -54,11 +50,6 @@ public:
 
     return TRUE;
   } // OnInitDialog
-
-  void OnCloseCmd(UINT uNotifyCode, int nID, CWindow wndCtl)
-  {
-    EndDialog(nID);
-  } // OnCloseCmd
 
   void OnSelChange(UINT uNotifyCode, int nID, CWindow wndCtl)
   {
