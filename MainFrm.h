@@ -89,7 +89,7 @@ public:
     ATLASSERT(pLoop != NULL);
     pLoop->AddMessageFilter(this);
 
-    m_view.mGame->NewGame();
+    m_view.NewGame();
 
     SetCaption();
 
@@ -151,8 +151,7 @@ public:
     }
 
     m_view.mGame = cgm.mGames[m_view.mSel];
-    m_view.mGame->NewGame();
-    m_view.Invalidate(FALSE);
+    m_view.NewGame();
 
     SetCaption();
   } // OnRandomSelectGame
@@ -170,8 +169,7 @@ public:
 
     m_view.mSel = sel.mSel;
     m_view.mGame = cgo::CardGameManager::inst().mGames[sel.mSel];
-    m_view.mGame->NewGame();
-    m_view.Invalidate(FALSE);
+    m_view.NewGame();
 
     SetCaption();
   } // OnSelectGame
