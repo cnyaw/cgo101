@@ -137,7 +137,7 @@ public class Cgo101Activity extends Activity
         menu.add(0, 2, 2, "Help");
       }
     }
-    return super.onPrepareOptionsMenu(menu);
+    return true;
   }
 
   @Override
@@ -160,6 +160,7 @@ public class Cgo101Activity extends Activity
   @Override
   public boolean onKeyDown(int keyCode, KeyEvent event) {
     if (KeyEvent.KEYCODE_BACK == keyCode && -1 != mSelGame) {
+      invalidateOptionsMenu();          // This will call onPrepareOptionsMenu()
       openOptionsMenu();
       return true;
     }
